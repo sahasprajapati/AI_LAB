@@ -47,9 +47,21 @@ const App = () => {
         <Router>
           <Header />
           <Switch>
-            <Route exact from="/" render={(props) => <Lab2 {...props} />} />
-            <Route exact path="/lab2" render={(props) => <Lab2 {...props} />} />
-            <Route exact path="/lab3" render={(props) => <Lab3 {...props} />} />
+            <Route
+              exact
+              from="/AI_LAB/"
+              render={(props) => <Lab2 {...props} />}
+            />
+            <Route
+              exact
+              path="/AI_LAB/lab2"
+              render={(props) => <Lab2 {...props} />}
+            />
+            <Route
+              exact
+              path="/AI_LAB/lab3"
+              render={(props) => <Lab3 {...props} />}
+            />
           </Switch>
         </Router>
       </Provider>
