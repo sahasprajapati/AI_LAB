@@ -1,15 +1,13 @@
 import React from "react";
-import "@material-ui/core";
 import {
   Container,
   Grid,
-  AppBar,
-  Toolbar,
   Typography,
   Card,
   CardContent,
   Tabs,
   Tab,
+  Link,
   CardHeader,
 } from "@material-ui/core";
 import GraphComponent from "../../features/graph/Graph";
@@ -58,16 +56,8 @@ const Lab2 = () => {
   };
   // console.log(g.graph);
   return (
-    <Container>
+    <Container maxwidth={"lg"}>
       <Grid container direction="column" spacing={2}>
-        <Grid item>
-          <AppBar>
-            <Toolbar>
-              <Typography variant="h5">LAB 2</Typography>
-            </Toolbar>
-          </AppBar>
-          <Toolbar />
-        </Grid>
         <Grid item>
           <Card>
             <CardHeader title="DFS and BFS" />
@@ -111,17 +101,17 @@ const Lab2 = () => {
               </Tabs>
 
               <TabPanel value={value} index={0}>
-                <SyntaxHighlighter language="js" style={dracula}>
+                <SyntaxHighlighter language="javascript" style={dracula}>
                   {snippets.bfs}
                 </SyntaxHighlighter>
               </TabPanel>
               <TabPanel value={value} index={1}>
-                <SyntaxHighlighter language="js" style={dracula}>
+                <SyntaxHighlighter language="javascript" style={dracula}>
                   {snippets.dfs}
                 </SyntaxHighlighter>
               </TabPanel>
               <TabPanel value={value} index={2}>
-                <SyntaxHighlighter language="js" style={dracula}>
+                <SyntaxHighlighter language="javascript" style={dracula}>
                   {snippets.graphClass}
                 </SyntaxHighlighter>
               </TabPanel>
@@ -140,7 +130,13 @@ const Lab2 = () => {
           <Card>
             <CardHeader title="Github Link" />
             <CardContent>
-              <a href="https://github.com/B10prajapati/AI_LAB">Github Link</a>
+              <Link
+                color="secondary"
+                href="https://github.com/B10prajapati/AI_LAB"
+                variant="body2"
+              >
+                {"Github Link"}
+              </Link>
             </CardContent>
           </Card>
         </Grid>
