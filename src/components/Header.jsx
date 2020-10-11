@@ -54,12 +54,12 @@ const Header = (props) => {
   const menuItems = [
     {
       menuTitle: "Home",
-      pageURL: "/",
+      pageURL: "/AI_LAB/",
     },
 
     {
       menuTitle: "Lab3",
-      pageURL: "/lab3",
+      pageURL: "/AI_LAB/lab3",
     },
   ];
 
@@ -110,14 +110,14 @@ const Header = (props) => {
             <div className={classes.headerOptions}>
               <Button
                 variant="contained"
-                onClick={() => handleButtonClick("/")}
+                onClick={() => handleButtonClick("/AI_LAB/")}
               >
                 HOME
               </Button>
 
               <Button
                 variant="contained"
-                onClick={() => handleButtonClick("/lab3")}
+                onClick={() => handleButtonClick("/AI_LAB/lab3")}
               >
                 Lab3
               </Button>
