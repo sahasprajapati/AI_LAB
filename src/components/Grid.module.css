@@ -1,0 +1,86 @@
+:root {
+  --main-bg-color: #2e3f5a;
+}
+@keyframes fadeInChecked {
+  from {
+    background: var(--main-bg-color);
+  }
+  to {
+    background: #75ccfa;
+  }
+}
+
+@keyframes fadeInClosed {
+  from {
+    background: var(--main-bg-color);
+  }
+  to {
+    background: rgb(34, 116, 240);
+  }
+}
+
+@keyframes fadeInPath {
+  from {
+    background: var(--main-bg-color);
+  }
+  to {
+    background: #d9822b;
+  }
+}
+
+table.gridTable {
+  border-collapse: separate;
+  margin: auto;
+  border-spacing: 3px;
+}
+
+.gridCell {
+  width: calc(
+    min(2.8vw, 2.6vh) - 3px
+  ); /* (100vw - 10vw (margin)) / 32 = 2.8125 */
+  height: calc(min(2.8vw, 2.6vh) - 3px);
+  overflow: hidden;
+  background: var(--main-bg-color);
+  border-radius: 5px;
+  border: 1px;
+}
+
+.gridTooltip,
+.gridTooltip :global(.bp3-popover-wrapper) {
+  width: calc(min(2.8vw, 2.6vh) - 7px);
+  height: calc(min(2.8vw, 2.6vh) - 7px);
+  display: block;
+}
+
+.gridCell.blocked {
+  background-color: #bbbbbb;
+}
+
+.gridCell.checked:not(.start):not(.end) {
+  animation: fadeInChecked 2s forwards;
+}
+
+.gridCell.closed:not(.start):not(.end) {
+  animation: fadeInClosed 2s forwards;
+}
+
+.gridCell.path:not(.start):not(.end) {
+  animation: fadeInPath 2s forwards;
+}
+
+.gridCell.start {
+  background-color: #4dd276;
+}
+
+.gridCell.end {
+  background-color: #ec605b;
+}
+
+.tooltipRoot {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.tooltipRoot td {
+  padding: 5px;
+}

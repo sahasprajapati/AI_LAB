@@ -1,25 +1,22 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-
+import ChatbotComponent from "../../features/chatbot/Chatbot";
 import CodeBlock from "../../components/CodeBlock";
 import { snippets } from "../../snippets";
-import WaterjugComponent from "../../features/waterjug/WaterjugComponent";
 
-const Lab3 = () => {
-  const tabNameList = ["Solved Examples", "Rules", "Solution", "Class"];
+const Lab5 = () => {
+  const tabNameList = ["STEM", "ASK", "ChatBot Class"];
   const tabCodeSnippetList = [
-    snippets.water_jug_solution,
-    snippets.water_jug_rules,
-    snippets.water_jug_pour_rule,
-    snippets.water_jug,
+    snippets.chatbot_stem,
+    snippets.chatbot_ask,
+    snippets.chatbot,
   ];
 
   return (
     <Grid item container direction="column" spacing={2}>
       <Grid item>
-        <WaterjugComponent />
+        <ChatbotComponent />
       </Grid>
-
       <Grid item xs={12} sm={12}>
         <CodeBlock
           tabNameList={tabNameList}
@@ -30,4 +27,4 @@ const Lab3 = () => {
     </Grid>
   );
 };
-export default Lab3;
+export default Lab5;

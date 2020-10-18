@@ -1,19 +1,11 @@
-import {
-  Container,
-  createMuiTheme,
-  CssBaseline,
-  Paper,
-  ThemeProvider,
-} from "@material-ui/core";
+import { createMuiTheme, CssBaseline, ThemeProvider } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 
 import React from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import Lab2 from "./pages/lab2/lab2";
-import Lab3 from "./pages/lab3/lab3";
 import store from "./app/store";
+import ClippedDrawer from "./pages/home/home";
+
 // Dark theme
 const theme = createMuiTheme({
   palette: {
@@ -44,26 +36,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <CssBaseline />
-        <Router>
-          <Header />
-          <Switch>
-            <Route
-              exact
-              from="/AI_LAB/"
-              render={(props) => <Lab2 {...props} />}
-            />
-            <Route
-              exact
-              path="/AI_LAB/lab2"
-              render={(props) => <Lab2 {...props} />}
-            />
-            <Route
-              exact
-              path="/AI_LAB/lab3"
-              render={(props) => <Lab3 {...props} />}
-            />
-          </Switch>
-        </Router>
+        <ClippedDrawer />
       </Provider>
     </ThemeProvider>
   );

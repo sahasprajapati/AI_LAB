@@ -35,11 +35,11 @@ const GraphComponent = () => {
   const [nodeName, setNodeName] = useState("");
 
   const handleNewNodeSubmit = () => {
-    setNodeName("");
     if (nodeList.includes(nodeName)) return;
     dispatch(addNode({ name: nodeName || "Node" }));
     if (typeof nodeList[highlightedNode] !== "undefined")
       g.addEdge(nodeList[highlightedNode], nodeName);
+    setNodeName("");
   };
 
   const handleShowDFS = () => {
@@ -84,7 +84,7 @@ const GraphComponent = () => {
           <CardActions>
             <TextField
               label="Node Name"
-              placeholder="Node"
+              plaardceholder="Node"
               variant="outlined"
               aria-label="Node name"
               value={nodeName}
