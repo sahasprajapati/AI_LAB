@@ -1,5 +1,5 @@
 class WaterJugClass {
-  constructor(x=3, y=5, target=4) {
+  constructor(x = 3, y = 5, target = 4) {
     this.capX = x;
     this.capY = y;
     this.x = 0;
@@ -119,7 +119,7 @@ class WaterJugClass {
     this.reset();
     let yJug = this.capY;
     let xJug = 0;
-    this.rule(2)
+    this.rule(2);
     let step = 1;
     while (!this.target !== yJug && !this.target !== xJug) {
       console.log(`(${xJug},${yJug})`);
@@ -127,11 +127,10 @@ class WaterJugClass {
       if (yJug < this.capX - xJug) {
         temp = yJug;
 
-           this.rule(9)
+        this.rule(9);
       } else {
         temp = this.capX - xJug;
-        this.rule(7)
-      
+        this.rule(7);
       }
       xJug = xJug + temp;
       yJug = yJug - temp;
@@ -148,12 +147,12 @@ class WaterJugClass {
       }
       if (yJug === 0) {
         yJug = this.capY;
-        this.rule(2)
+        this.rule(2);
         step = step + 1;
       }
       if (xJug === this.capX) {
         xJug = 0;
-        this.rule(5)
+        this.rule(5);
         step = step + 1;
       }
     }

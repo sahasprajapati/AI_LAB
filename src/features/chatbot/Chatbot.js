@@ -14,11 +14,7 @@ import { deepOrange, deepPurple } from "@material-ui/core/colors";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Chatbot from "./ChatbotClass";
-import {
-  addAnswer,
-  addQuestion,
-  selectMessageHistory,
-} from "./chatbotSlice";
+import { addAnswer, addQuestion, selectMessageHistory } from "./chatbotSlice";
 
 const c = new Chatbot();
 
@@ -156,7 +152,7 @@ const ChatbotComponent = () => {
                 }
               />
               <CardContent>
-                <Grid container spacing={4} xs={12}>
+                <Grid item container spacing={4} xs={12}>
                   {messageHistory.map((message, index) => {
                     return index % 2 !== 0 ? (
                       <Grid

@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { TweenMax } from "gsap";
 import { Linear } from "gsap/gsap-core";
 import { useImperativeHandle } from "react";
@@ -12,6 +12,7 @@ const WaterjugComponent = forwardRef((props, ref) => {
   const [toggleRender, setToggleRender] = useState(false);
   const [waterLevel, setWaterLevel] = useState(0);
   const [temporaryLevel, setTemporaryLevel] = useState(0);
+
   useImperativeHandle(ref, () => ({
     fill(x) {
       console.log("Fill");
@@ -34,95 +35,96 @@ const WaterjugComponent = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (toggle === 1) {
-      console.log("IN RISE id " + id);
-      console.log(waterLevel, waterVolume);
       const rise = waterLevel + waterVolume;
+      if (rise <= capacity) {
+        setWaterLevel(rise);
+        const waterRatio = (temporaryLevel + waterVolume) / capacity;
+        const previousRatio = temporaryLevel / capacity;
+        setTemporaryLevel(rise);
+        // "Wave" animation
+        TweenMax.fromTo(
+          ".water-fill" + id,
+          0.8,
+          {
+            attr: {
+              x: -400,
+            },
+          },
+          {
+            attr: {
+              x: 0,
+            },
+            repeat: -1,
+            ease: Linear.easeNone,
+          }
+        );
 
-      setWaterLevel(rise);
-      const waterRatio = (temporaryLevel + waterVolume) / capacity;
-      const previousRatio = temporaryLevel / capacity;
-      setTemporaryLevel(rise);
-      // "Wave" animation
-      TweenMax.fromTo(
-        ".water-fill" + id,
-        0.8,
-        {
-          attr: {
-            x: -400,
+        // "Fill up" animation
+        TweenMax.fromTo(
+          ".water-fill" + id,
+          3,
+          {
+            attr: {
+              y: 378 - 378 * previousRatio,
+              height: 440 * previousRatio,
+            },
           },
-        },
-        {
-          attr: {
-            x: 0,
-          },
-          repeat: -1,
-          ease: Linear.easeNone,
-        }
-      );
-
-      // "Fill up" animation
-      TweenMax.fromTo(
-        ".water-fill" + id,
-        3,
-        {
-          attr: {
-            y: 378 - 378 * previousRatio,
-            height: 440 * previousRatio,
-          },
-        },
-        {
-          attr: {
-            y: 378 - 378 * waterRatio,
-            height: 440 * waterRatio,
-          },
-          ease: Linear.easeNone,
-        }
-      );
+          {
+            attr: {
+              y: 378 - 378 * waterRatio,
+              height: 440 * waterRatio,
+            },
+            ease: Linear.easeNone,
+          }
+        );
+      }
     } else if (toggle === 2) {
       console.log("IN DROP id " + id);
       console.log(waterLevel, emptyWaterVolume);
       const drop = waterLevel - emptyWaterVolume;
-      setWaterLevel(drop);
+      if (drop >= 0) {
+        setWaterLevel(drop);
 
-      const previousRatio = temporaryLevel / capacity;
-      const emptyWaterRatio = (temporaryLevel - emptyWaterVolume) / capacity;
-      setTemporaryLevel(drop);
-      // "Wave" animation
-      TweenMax.fromTo(
-        ".water-fill" + id,
-        0.8,
-        {
-          attr: {
-            x: -400,
+        const previousRatio = temporaryLevel / capacity;
+        const emptyWaterRatio = (temporaryLevel - emptyWaterVolume) / capacity;
+        setTemporaryLevel(drop);
+        // "Wave" animation
+        TweenMax.fromTo(
+          ".water-fill" + id,
+          0.8,
+          {
+            attr: {
+              x: -400,
+            },
           },
-        },
-        {
-          attr: {
-            x: 0,
-          },
-          repeat: -1,
-          ease: Linear.easeNone,
-        }
-      );
+          {
+            attr: {
+              x: 0,
+            },
+            repeat: -1,
+            ease: Linear.easeNone,
+          }
+        );
 
-      // "Drop water" animation
-      TweenMax.fromTo(
-        ".water-fill" + id,
-        3,
-        {
-          attr: {
-            y: 378 - 378 * previousRatio,
-            height: 440 * previousRatio,
+        // "Drop water" animation
+        TweenMax.fromTo(
+          ".water-fill" + id,
+          3,
+          {
+            attr: {
+              y: 378 - 378 * previousRatio,
+              height: 440 * previousRatio,
+            },
           },
-        },
-        {
-          attr: {
-            y: 378 - 378 * emptyWaterRatio,
-            height: 440 * emptyWaterRatio,
-          },
-          ease: Linear.easeNone,
-        }
-      );
+          {
+            attr: {
+              y: 378 - 378 * emptyWaterRatio,
+              height: 440 * emptyWaterRatio,
+            },
+            ease: Linear.easeNone,
+          }
+        );
+      }
     }
   }, [toggleRender]);
 
@@ -177,4 +179,4 @@ const WaterjugComponent = forwardRef((props, ref) => {
   );
 });
 
-export default WaterjugComponent;
+export default React.memo(WaterjugComponent);

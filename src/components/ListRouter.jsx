@@ -8,18 +8,14 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import InboxIcon from "@material-ui/icons/Inbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
 import { withRouter } from "react-router";
 import { Link as RouterLink } from "react-router-dom";
 import {
   AccountTreeOutlined,
-  BrandingWatermarkOutlined,
   FilterListOutlined,
-  GraphicEqOutlined,
   InfoOutlined,
   MessageOutlined,
   SearchOutlined,
-  SendOutlined,
 } from "@material-ui/icons";
 
 function ListItemLink(props) {

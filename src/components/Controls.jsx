@@ -2,16 +2,14 @@ import React from "react";
 
 import SettingsModal from "./SettingsModal";
 
-import { Button, Grid, Icon } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import {
   ClearAllOutlined,
   PlayArrowOutlined,
   StopOutlined,
-  StoreOutlined,
 } from "@material-ui/icons";
 import {
   calculatePath,
-  changePreset,
   clearGrid,
   selectMode,
   setMode,

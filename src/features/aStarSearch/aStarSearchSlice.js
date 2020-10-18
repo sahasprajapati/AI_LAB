@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { computePath } from "./aStarSearchAlgorithm";
 import { GRID_SIZE, Mode } from "./constants";
 import { A_STAR, BLANK, LABYRINTH, RANDOM } from "./presets";
@@ -14,22 +13,22 @@ const _initialState = (width, height) => {
     preset: "a-star-text",
   };
 };
-const _changeCellStatus = (state, { x, y }, status) => {
-  const newState = _.cloneDeep(state);
-  newState.path = undefined;
+// const _changeCellStatus = (state, { x, y }, status) => {
+//   const newState = _.cloneDeep(state);
+//   newState.path = undefined;
 
-  if (status === "blocked" && newState.grid[x][y].status === "blocked") {
-    newState.grid[x][y] = { status: "empty" };
-  } else {
-    newState.grid[x][y] = { status: status };
-  }
-  return newState;
-};
+//   if (status === "blocked" && newState.grid[x][y].status === "blocked") {
+//     newState.grid[x][y] = { status: "empty" };
+//   } else {
+//     newState.grid[x][y] = { status: status };
+//   }
+//   return newState;
+// };
 const _changePreset = (state, preset) => {
   if (!preset) return state;
 
-  console.log(preset);
-  const base = _initialState(GRID_SIZE, GRID_SIZE);
+  // console.log(preset);
+  // const base = _initialState(GRID_SIZE, GRID_SIZE);
   switch (preset) {
     case "a-star-text":
       return A_STAR;

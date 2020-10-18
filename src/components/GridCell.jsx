@@ -7,17 +7,7 @@ import cn from "classnames";
 import styles from "./Grid.module.css";
 
 const GridCell = (props) => {
-  const {
-    cell,
-    rowIndex,
-    colIndex,
-    start,
-    end,
-    path,
-    setCellAsBlocked,
-    isPressed,
-    onCellClick,
-  } = props;
+  const { cell, rowIndex, colIndex, start, end, path, onCellClick } = props;
   const isClosed = path && path[rowIndex][colIndex]?.isClosed;
   const isPath = path && path[rowIndex][colIndex]?.isPath;
   const isChecked = path && path[rowIndex][colIndex]?.fCost !== 0;

@@ -9,6 +9,7 @@ import {
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Waterjug from "./Waterjug";
+import WaterJugClass from "./WaterjugClass";
 import {
   addCapacityX,
   addCapacityY,
@@ -18,12 +19,20 @@ import {
   selectCapacityY,
   selectPath,
   reset,
+  stop,
+  selectStopAnimation,
+  selectTarget,
 } from "./waterjugSlice";
 
+const water = new WaterJugClass(7, 5, 1);
+
+water.pourRule();
 const WaterjugComponent = () => {
   const capX = useSelector(selectCapacityX);
   const capY = useSelector(selectCapacityY);
+  const targt = useSelector(selectTarget);
   const path = useSelector(selectPath);
+  const stop = useSelector(selectStopAnimation);
   const refX = useRef(null);
   const refY = useRef(null);
 
@@ -38,7 +47,7 @@ const WaterjugComponent = () => {
   const [target, setTarget] = useState(0);
 
   const dispatch = useDispatch();
-  useEffect(() => {});
+
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
@@ -73,17 +82,26 @@ const WaterjugComponent = () => {
 
       tempX = x;
       tempY = y;
-
-      await sleep(5000);
+      if (stop) {
+        break;
+      } else {
+        await sleep(4000);
+      }
     }
   };
   useEffect(() => {
-    if (path.length === 0) {
-      console.log("empty");
-      refX.current.empty();
-      refY.current.empty();
-    } else {
-      waitLoop();
+    if (refX.current !== null && refY.current !== null) {
+      if (path.length === 0) {
+        console.log("empty");
+        refX.current.empty();
+        refY.current.empty();
+      } else {
+        try {
+          waitLoop();
+        } catch (e) {
+          console.log(e);
+        }
+      }
     }
   }, [path]);
 
@@ -190,7 +208,25 @@ const WaterjugComponent = () => {
               </CardContent>
             </Card>
           </Grid>
-
+          <Grid
+            item
+            xs={12}
+            container
+            spacing={4}
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography>Jug Y Capacity : {capX}</Typography>
+            </Grid>
+            <Grid item>
+              <Typography>Jug X Capacity : {capY}</Typography>
+            </Grid>
+            <Grid item>
+              <Typography>Target : {targt}</Typography>
+            </Grid>
+          </Grid>{" "}
           <Grid
             item
             xs={12}
@@ -264,6 +300,10 @@ const WaterjugComponent = () => {
                 variant="contained"
                 color="secondary"
                 onClick={() => {
+                  dispatch(reset());
+
+                  refX.current.empty();
+                  refY.current.empty();
                   dispatch(computePath());
                 }}
               >
@@ -282,7 +322,6 @@ const WaterjugComponent = () => {
               </Button>
             </Grid>
           </Grid>
-
           <Grid
             item
             container
