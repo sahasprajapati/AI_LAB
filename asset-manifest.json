@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/AI_LAB/static/css/main.69eda509.chunk.css",
-    "main.js": "/AI_LAB/static/js/main.9c8db1f5.chunk.js",
-    "main.js.map": "/AI_LAB/static/js/main.9c8db1f5.chunk.js.map",
+    "main.css": "/AI_LAB/static/css/main.2ed3767f.chunk.css",
+    "main.js": "/AI_LAB/static/js/main.c84e0714.chunk.js",
+    "main.js.map": "/AI_LAB/static/js/main.c84e0714.chunk.js.map",
     "runtime-main.js": "/AI_LAB/static/js/runtime-main.334c7ec1.js",
     "runtime-main.js.map": "/AI_LAB/static/js/runtime-main.334c7ec1.js.map",
-    "static/js/2.0f626311.chunk.js": "/AI_LAB/static/js/2.0f626311.chunk.js",
-    "static/js/2.0f626311.chunk.js.map": "/AI_LAB/static/js/2.0f626311.chunk.js.map",
+    "static/js/2.e197dc58.chunk.js": "/AI_LAB/static/js/2.e197dc58.chunk.js",
+    "static/js/2.e197dc58.chunk.js.map": "/AI_LAB/static/js/2.e197dc58.chunk.js.map",
     "index.html": "/AI_LAB/index.html",
-    "precache-manifest.fdcf3b62c307e66b191cda4919673d66.js": "/AI_LAB/precache-manifest.fdcf3b62c307e66b191cda4919673d66.js",
+    "precache-manifest.91d55d495112fa107abe18267bcde8cc.js": "/AI_LAB/precache-manifest.91d55d495112fa107abe18267bcde8cc.js",
     "service-worker.js": "/AI_LAB/service-worker.js",
-    "static/css/main.69eda509.chunk.css.map": "/AI_LAB/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.0f626311.chunk.js.LICENSE.txt": "/AI_LAB/static/js/2.0f626311.chunk.js.LICENSE.txt"
+    "static/css/main.2ed3767f.chunk.css.map": "/AI_LAB/static/css/main.2ed3767f.chunk.css.map",
+    "static/js/2.e197dc58.chunk.js.LICENSE.txt": "/AI_LAB/static/js/2.e197dc58.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.334c7ec1.js",
-    "static/js/2.0f626311.chunk.js",
-    "static/css/main.69eda509.chunk.css",
-    "static/js/main.9c8db1f5.chunk.js"
+    "static/js/2.e197dc58.chunk.js",
+    "static/css/main.2ed3767f.chunk.css",
+    "static/js/main.c84e0714.chunk.js"
   ]
 }
