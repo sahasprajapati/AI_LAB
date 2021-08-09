@@ -79,7 +79,7 @@ function ResponsiveDrawer(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Artificail Intelligence Lab
+              Artificial Intelligence Lab
             </Typography>
           </Toolbar>
         </AppBar>
