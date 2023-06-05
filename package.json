@@ -11,7 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "classnames": "^2.2.6",
-    "gsap": "^3.5.1",
+    "gsap": "^3.11.5",
     "lodash": "^4.17.20",
     "natural": "^2.1.5",
     "react": "^16.13.1",
